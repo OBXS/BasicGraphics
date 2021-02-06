@@ -10,8 +10,6 @@ solution "DirectX9"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-DXSDKDir = "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)"
-
 project "D3D9"
     location "D3D9"
     kind "ConsoleApp"
@@ -28,10 +26,9 @@ project "D3D9"
         "%{prj.name}/**.cpp"
     }
 
-    includedirs
+    includedirs 
     {
-        DXSDKDir .. "/Include/d3d9.h",
-        DXSDKDir .. "/Include/d3dx9.h"
+        "../Shared/Windows/"
     }
 
     defines
@@ -44,19 +41,7 @@ project "D3D9"
         symbols "On"
         buildoptions "/MDd"
 
-        links
-        {
-            DXSDKDir .. "/Lib/x64/d3d9.lib",
-            DXSDKDir .. "/Lib/x64/d3dx9d.lib",
-        }
-
     filter "configurations:Release"
         runtime "Release"
         optimize "On"
         buildoptions "/MD"
-
-        links
-        {
-            DXSDKDir .. "/Lib/x64/d3d9.lib",
-            DXSDKDir .. "/Lib/x64/d3dx9.lib",
-        }
