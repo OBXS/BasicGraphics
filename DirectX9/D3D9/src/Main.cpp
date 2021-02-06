@@ -78,6 +78,8 @@ public:
 		m_Wc.SetUpdateCallback(FnUpdate);
 		m_Wc.Run();
 
+		m_D3d.Uninitialize();
+
 		return 0;
 	}
 public:
